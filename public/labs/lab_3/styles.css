@@ -2,26 +2,58 @@
  https://javascript.info/introduction-browser-events */
 
 .move{
-    padding: 20;
-    border-radius: 30px;
-    border: 2px solid purple;
+    position: absolute;
+    top: 60px;
+    padding: 0;
+    background: #ddd;
+    border-radius: 15px;
+    border: 1px solid gray;
+    font-size: 24px;
+    line-height: 24px;
+    color: #444;
     display: block;
-    font-size: 16px;
-    background: #2a2a;
 }
+
+#forward{
+   right: 50px;
+}
+
+#back{
+   left: 100px;
+}
+
+.move:focus {
+    outline: none;
+  }
+  
+.move:hover {
+    background: #ccc;
+    cursor: pointer;
+  }
  
- 
- ul img{
-     width: auto;
-     height: auto;
-     
- }
+.images{
+    flex: center
+   
+}
 
- ul li{
-     display: inline-block;
- }
-
-
+ul {
+    height: 130px;
+    width: 9999px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0;
+}
+  
+  ul img {
+    width: 130px;
+    height: 130px;
+    display: block; /* removes extra space near images */
+  }
+  
+  ul li {
+    display: inline-block; 
+  }
 
  .carousel {
     position: relative;
@@ -37,25 +69,4 @@
 
 .carousel .slide {
     display: none;
-}
-
-.caption {
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    opacity: 0;
-    display: inline-block;
-    padding: 48px;
-    background: rgba(0, 0, 0, 0.75);
-    color: white;
-    margin: 0;
-    font-size: 24px;
-    font-weight: 700;
-    transition: all 0.8s ease-in-out;
-}
-
-.caption small {
-    font-size: 16px;
-    font-weight: 400;
 }

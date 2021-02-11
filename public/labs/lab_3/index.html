@@ -4,79 +4,34 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Domenic Bongiovanni</title>
+    <title>Domenic Bongiovanni Lab 3</title>
     <link href="styles.css" rel="stylesheet" />
   </head>
 
-  <!-- Include your script.js right before the </body> tag -->
-<script
-    src="script.js">
-</script>
+    <!-- Make a carousel of four mochi images that cycle, based on the readings from javascript.info -->
+    <body>
 
-<!-- Make a carousel of four mochi images that cycle, based on the readings from javascript.info -->
-<body>
+        <div class='carousel'>
+            <input type="button" id= 'back' onclick="back()" value="Back!" class="move">
 
-    <input type="button" onclick="next()" value="Next!" class="move">
-    <input type="button" onclick="back()" value="Back!" class="move">
+            <div class='gallery'>
+                <ul class='images'>
+                    <li><img src="images/onigiri_1.png"></li>
+                    <li><img src="images/onigiri_2.png"></li>
+                    <li><img src="images/onigiri_3.png"></li>
+                    <li><img src="images/onigiri_4.png"></li>
+                    <li><img src="images/roll_1.png"></li>
+                    <li><img src="images/roll_2.png"></li>
+                    <li><img src="images/roll_3.png"></li>
+                </ul>
+            </div> 
+            <input type="button" id='forward' onclick="next()" value="Next!" class="move">
+        </div>
 
+    </body>
 
+    <script
+        src="script.js">
+    </script>
 
-    <div class="carousel">
-        <div class="slide" data-background="images/onigiri_1.png"></div>
-        <p class="caption caption-0">
-            The first slide.
-            <br><small>This is an awesome mochi.</small>
-        </p>
-    
-        <div class="slide" data-background="images/onigiri_2.png"></div>
-        <p class="caption caption-1">
-            The second slide, yay!
-            <br><small>This is a marvellous mochi.</small>
-        </p>
-    
-        <div class="slide" data-background="images/onigiri_3.png"></div>
-        <p class="caption caption-2">
-            Oh look, a third slide!
-            <br><small>This is a bloody brilliant mochi. It's CGI.</small>
-        </p>
-
-        <div class="slide" data-background="images/onigiri_4.png"></div>
-        <p class="caption caption-3">
-            Oh look, a third slide!
-            <br><small>This is a bloody brilliant mochi. It's CGI.</small>
-        </p>
-
-        <div class="slide" data-background="images/roll_1.png"></div>
-        <p class="caption caption-4">
-            Oh look, a fourth slide!
-            <br><small>This is a bloody brilliant mochi. It's CGI.</small>
-        </p>
-
-        <div class="slide" data-background="images/roll_2.png"></div>
-        <p class="caption caption-5">
-            Oh look, a fifth slide!
-            <br><small>This is a bloody brilliant mochi. It's CGI.</small>
-        </p>
-
-        <div class="slide" data-background="images/roll_3.png"></div>
-        <p class="caption caption-6">
-            Oh look, a sixth slide!
-            <br><small>This is a bloody brilliant mochi. It's CGI.</small>
-        </p>
-    </div>
-
-
-
-
-
-
-    <ul>
-        <li><img src="images/onigiri_1.png"></li>
-        <li><img src="images/onigiri_2.png"></li>
-        <li><img src="images/onigiri_3.png"></li>
-        <li><img src="images/onigiri_4.png"></li>
-        <li><img src="images/roll_1.png"></li>
-        <li><img src="images/roll_2.png"></li>
-        <li><img src="images/roll_3.png"></li>
-    </ul>
-</body>
+</html>
