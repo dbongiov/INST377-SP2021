@@ -54,7 +54,7 @@ ul {
 ul img {
     width: 130px;
     height: 130px;
-    display: inline; /* removes extra space near images */
+    display: inline; 
 }
   
 ul li {
