@@ -1,7 +1,8 @@
 /* Add some css styles based on the tutorial at javascript.info: introduction to browser events
  https://javascript.info/introduction-browser-events */
 
-.move{
+
+ .move{
     position: absolute;
     top: 60px;
     padding: 0;
@@ -15,7 +16,7 @@
 }
 
 #forward{
-   right: 50px;
+   right: 60px;
 }
 
 #back{
@@ -31,9 +32,11 @@
     cursor: pointer;
   }
  
-.images{
+.carousel img{
+    width: 130px;
+    height: 130px;
+    display:inline;
     flex: center
-   
 }
 
 ul {
@@ -43,23 +46,26 @@ ul {
     padding: 0;
     list-style: none;
     font-size: 0;
+    margin-left:0px;
+    transition:margin-left 250ms;
+    display:block;
 }
   
-  ul img {
+ul img {
     width: 130px;
     height: 130px;
-    display: block; /* removes extra space near images */
-  }
+    display: inline; /* removes extra space near images */
+}
   
-  ul li {
-    display: inline-block; 
-  }
+ul li {
+    display: inline; 
+}
 
- .carousel {
+.carousel {
     position: relative;
     overflow: hidden;
-    width: 100%;
-    height: 300px;
+    width: 45%;
+    height: 200px;
     margin: 48px auto;
     background-size: cover;
     border-radius: 3px;
@@ -67,6 +73,11 @@ ul {
     transition: background-image 0.8s ease-in-out;
 }
 
-.carousel .slide {
-    display: none;
+.gallery{
+    display:block;
+    overflow:hidden;
+    margin-left:auto;
+    margin-right:auto;
+    width: 390px;
+    padding-top: 25px;
 }

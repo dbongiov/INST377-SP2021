@@ -12,20 +12,21 @@
     <body>
 
         <div class='carousel'>
-            <input type="button" id= 'back' onclick="back()" value="Back!" class="move">
+            <input type="button" id= 'back' onclick="buttonClick(-1)" value="Back!" class="move">
 
             <div class='gallery'>
                 <ul class='images'>
-                    <li><img src="images/onigiri_1.png"></li>
-                    <li><img src="images/onigiri_2.png"></li>
-                    <li><img src="images/onigiri_3.png"></li>
-                    <li><img src="images/onigiri_4.png"></li>
-                    <li><img src="images/roll_1.png"></li>
-                    <li><img src="images/roll_2.png"></li>
-                    <li><img src="images/roll_3.png"></li>
+                        <li><img src="images/onigiri_1.png"></li>
+                        <li><img src="images/onigiri_2.png"></li>
+                        <li><img src="images/onigiri_3.png"></li>
+                        <li><img src="images/onigiri_4.png"></li>
+                        <li><img src="images/roll_1.png"></li>
+                        <li><img src="images/roll_2.png"></li>
+                        <li><img src="images/roll_3.png"></li>
+                    
                 </ul>
             </div> 
-            <input type="button" id='forward' onclick="next()" value="Next!" class="move">
+            <input type="button" id='forward' onclick="buttonClick(1)" value="Next!" class="move">
         </div>
 
     </body>

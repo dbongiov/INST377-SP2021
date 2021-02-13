@@ -1,37 +1,31 @@
 /* Put your javascript in here */
 
-button.addEventListener('click', next);
+let i = 0;
+const width = 130;
+const count = 3;
+const list = document.querySelector('ul');
+const num = 7;
 
 function next() {
-    const a = document.querySelector('images');
-    {
-        a.scrollLeft;
-    }
+  // shift right
+  i -= width * count;
+  // can only shift the ribbbon for (total ribbon length - visible count) images
+  i = Math.max(i, -width * (num - count));
+  list.style.marginLeft = i + 'px';
 }
 
 function back() {
-  alert('Backwards');
+  // shift left
+  i += width * count;
+  // can't move to the left too much, end of images
+  i = Math.min(i, 0)
+  list.style.marginLeft = i + 'px';
 }
 
-let i = i;
-for (let i of carousel.querySelectorAll('forward')) {
-  li.style.position = 'relative';
-  li.insertAdjacentHTML('beforeend', `<span style="position:absolute;left:0;top:0">${i}</span>`);
-  i++;
+function buttonClick(x) {
+  if (x === 1) {
+    next();
+  } else {
+    back();
+  }
 }
-
-/* 
-
-after for loop
-
->declare variables that are needed to create both functions (ie. the width/# of spaces you want to move)
-
->select the forward button and apply function that will move forward x amount of space
-
->select back button and apply function that will move back x amount of space
-
-
-
-how many images and elements are being displayed
-listen for onclick event and then apply a function
-moving position right or left a certain amount of spaces or width of page */
