@@ -7,7 +7,7 @@ h1 {
   }
   
   body {
-    font: normal 18px/1.5 "Fira Sans", "Helvetica Neue", sans-serif;
+    font-family: 'Anton', sans-serif;
     background: green;
     color: #fff;
     padding: 50px 0;
@@ -23,62 +23,64 @@ h1 {
     box-sizing: border-box;
   }
   
-  .flex-outer,
-  .flex-inner {
+  .text-inputs,
+  .checkboxes {
     list-style-type: none;
     padding: 0;
   }
   
-  .flex-outer {
+  .text-inputs {
     max-width: 800px;
     margin: 0 auto;
   }
   
-  .flex-outer li,
-  .flex-inner {
+  .text-inputs li,
+  .checkboxes {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    margin-bottom: 20px;
   }
   
-  .flex-inner {
+  .checkboxes {
     padding: 0 8px;
     justify-content: space-between;  
   }
   
-  .flex-outer > li:not(:last-child) {
+  .test-inputs> li:not(:last-child) {
     margin-bottom: 20px;
   }
   
-  .flex-outer li label,
-  .flex-outer li p {
+  .text-inputs li label,
+  .text-inputs li p {
     padding: 8px;
     font-weight: 300;
+    margin-top: 0px;
   }
   
-  .flex-outer > li > label,
-  .flex-outer li p {
+  .text-inputs > li > label,
+  .text-inputs li p {
     flex: 1 0 120px;
     max-width: 220px;
   }
   
-  .flex-outer > li > label + *,
-  .flex-inner {
+  .text-inputs > li > label + *,
+  .checkboxes {
     flex: 1 0 220px;
   }
   
-  .flex-outer li p {
+  .text-inputs li p {
     margin: 0;
   }
   
-  .flex-outer li input:not([type='checkbox']),
-  .flex-outer li textarea {
+  .text-inputs li input:not([type='checkbox']),
+  .text-inputs li textarea {
     padding: 15px;
     border: none;
   }
   
-  .flex-outer li button {
-    margin-top: 40px;
+  .text-inputs li button {
+    margin-top: 30px;
     padding: 8px 16px;
     border: none;
     background: #333;
@@ -88,6 +90,6 @@ h1 {
     font-family: 'Anton', sans-serif;
   }
   
-  .flex-inner li {
+  .checkboxes li {
     width: 100px;
   }
