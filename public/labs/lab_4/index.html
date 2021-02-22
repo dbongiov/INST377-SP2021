@@ -13,47 +13,47 @@
 
 
 <div class="container">
-  <form>
-    <ul class="text-inputs">
+  <form action="/api" method = "post">
+    <ul class="flex-outer">
       <li>
-        <label for="first-name">First Name</label>
-        <input type="text" id="first-name">
+        <label for="fname">First Name</label>
+        <input type="text" name= "fname" id="fname">
       </li>
       <li>
-        <label for="last-name">Last Name</label>
-        <input type="text" id="last-name">
+        <label for="lname">Last Name</label>
+        <input type="text" name="lname" id="lname">
       </li>
       <li>
         <label for="email">Email</label>
-        <input type="email" id="email">
+        <input type="email" name="email" id="email">
       </li>
       <li>
         <label for="phone">Phone</label>
-        <input type="tel" id="phone">
+        <input type="tel" name="phone" id="phone">
       </li>
       <li>
         <label for="message">Message</label>
-        <textarea rows="6" id="message" placeholder="This is some default message text."></textarea>
+        <textarea rows="6" cols="33" name="message" id="message" placeholder="This is some default message text."></textarea>
       </li>
       <li>
         <p>Age</p>
-        <ul class="checkboxes">
+        <ul class="flex-inner">
           <li>
-            <input type="checkbox" id="eighteen-to-thirtyfive">
+            <input name="eighteen-to-thirtyfive" type="checkbox" id="eighteen-to-thirtyfive">
             <label for="eighteen-to-thirtyfive">18-35</label>
           </li>
           <li>
-            <input type="checkbox" id="thirtyfive-to-fifty">
+            <input name="thirtyfive-to-fifty" type="checkbox" id="thirtyfive-to-fifty">
             <label for="thirtyfive-to-fifty">35-50</label>
           </li>
           <li>
-            <input type="checkbox" id="fifty-to-sixtyfive">
+            <input name="fifty-to-sixtyfive" type="checkbox" id="fifty-to-sixtyfive">
             <label for="fifty-to-sixtyfive">50-65</label>
           </li>
         </ul>
       </li>
       <li>
-        <button type="submit">Submit Form</button>
+        <button id= "submit" name= "submit" type="submit" formmethod= 'POST'>Submit Form</button>
       </li>
     </ul>
   </form>

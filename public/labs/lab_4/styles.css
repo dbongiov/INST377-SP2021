@@ -23,63 +23,63 @@ h1 {
     box-sizing: border-box;
   }
   
-  .text-inputs,
-  .checkboxes {
+  .flex-outer,
+  .flex-inner {
     list-style-type: none;
     padding: 0;
   }
   
-  .text-inputs {
+  .flex-outer {
     max-width: 800px;
     margin: 0 auto;
   }
   
-  .text-inputs li,
-  .checkboxes {
+  .flex-outer li,
+  .flex-inner {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     margin-bottom: 20px;
   }
   
-  .checkboxes {
+  .flex-inner {
     padding: 0 8px;
     justify-content: space-between;  
   }
   
-  .test-inputs> li:not(:last-child) {
+  .flex-outer> li:not(:last-child) {
     margin-bottom: 20px;
   }
   
-  .text-inputs li label,
-  .text-inputs li p {
+  .flex-outer li label,
+  .flex-outer li p {
     padding: 8px;
     font-weight: 300;
     margin-top: 0px;
   }
   
-  .text-inputs > li > label,
-  .text-inputs li p {
+  .flex-outer > li > label,
+  .flex-outer li p {
     flex: 1 0 120px;
     max-width: 220px;
   }
   
-  .text-inputs > li > label + *,
-  .checkboxes {
+  .flex-outer > li > label + *,
+  .flex-inner {
     flex: 1 0 220px;
   }
   
-  .text-inputs li p {
+  .flex-outer li p {
     margin: 0;
   }
   
-  .text-inputs li input:not([type='checkbox']),
-  .text-inputs li textarea {
+  .flex-outer li input:not([type='checkbox']),
+  .flex-outer li textarea {
     padding: 15px;
     border: none;
   }
   
-  .text-inputs li button {
+  .flex-outer li button {
     margin-top: 30px;
     padding: 8px 16px;
     border: none;
@@ -90,6 +90,6 @@ h1 {
     font-family: 'Anton', sans-serif;
   }
   
-  .checkboxes li {
+  .flex-inner li {
     width: 100px;
   }
