@@ -2,5 +2,10 @@
     "baseUrl": "http://localhost:3000",
     "viewportHeight": 800,
     "viewportWidth": 1280,
+<<<<<<< HEAD
     "pluginsFile": "cypress/plugins/index.cjs"
+=======
+    "pluginsFile": "cypress/plugins/index.cjs",
+    "chromeWebSecurity": false
+>>>>>>> 44bd7ef0cd348ea6aef94554251d3fe6a0efbcf4
 }
