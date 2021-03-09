@@ -54,6 +54,35 @@ mymap.on('click', onMapClick);
 }
 
 
+marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
+circle.bindPopup("I am a circle.");
+polygon.bindPopup("I am a polygon.");
+
+let popup = L.popup()
+    .setLatLng([51.5, -0.09])
+    .setContent("I am a standalone popup.")
+    .openOn(mymap);
+
+    function onMapClick(e) {
+      alert("You clicked the map at " + e.latlng);
+  }
+  
+  mymap.on('click', onMapClick);
+
+  let popup = L.popup();
+
+function onMapClick(e) {
+    popup
+        .setLatLng(e.latlng)
+        .setContent("You clicked the map at " + e.latlng.toString())
+        .openOn(mymap);
+}
+
+mymap.on('click', onMapClick);
+
+
+
+
 
 
 
