@@ -20,13 +20,13 @@ const marker = L.marker([51.5, -0.09]).addTo(mymap);
 }
 
 
-
+/*
 async function maps {
   console.log(windowloaded);
   constant m = mapScript();
   await dataFilter(m);
 }
-
+*/
 
 
 
@@ -69,28 +69,28 @@ async function dataHandler(mapObjectFromFunction) {
 
   const endpoint = 'https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json';
 
-  const names = [];
+  const zips = [];
   fetch(endpoint).then(blob => console.log(blob))
   const prom = fetch(endpoint)
     .then((blob) => blob.json())
-    .then((data) => names.push(...data));
+    .then((data) => zips.push(...data));
 
-  function findMatches(wordToMatch, names) {
-    return names.filter(restaurants => {
+  function findMatches(wordToMatch, zips) {
+    return zips.filter(restaurants => {
       const regex = new RegExp(wordToMatch, 'gi');
-      return restaurants.name.match(regex);
+      return restaurants.zip.match(regex);
     });
   }
 
   function displayMatches() {
     console.log(this.value);
-    const matchArray = findMatches(this.value, names);
+    const matchArray = findMatches(this.value, zips);
     const html = matchArray.map(restaurants => {
       const regex = new RegExp(this.value, 'gi') ;
-      const restoName = restaurants.name.replace(regex, `<span class="hl">${this.value}</span>`);
+      const restoZip = restaurants.zip.replace(regex, `<span class="hl">${this.value}</span>`);
       return  `
         <li>
-            <span class= "title">${restoName}</span>
+            <span class= "title">${restoZip}</span>
             <span class= "address">${restaurants.address_line_1}</span>
             <span class= "city">${restaurants.city}</span>
             <span class= "category">${restaurants.category}</span>

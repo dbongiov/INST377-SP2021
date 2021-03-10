@@ -5,3 +5,11 @@
     width: 350px;
     height: 350px;
 }
+
+#submit {
+    margin-top: 10px;
+}
+
+h1 {
+    font-weight: 900;
+}
