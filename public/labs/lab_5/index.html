@@ -4,39 +4,42 @@
   <meta charset="UTF-8" />
   <meta name="viewport" initial-scale=1.0 />
   <title>Domenic Bongiovanni Lab 5</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
   crossorigin=""/>
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
   crossorigin=""></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
   <link rel="stylesheet" href='style.css'>
   
   
 </head>
+
 <body>
   <header>
     <h1>Lab 5- Domenic Bongiovanni</h1>
   </header>
 
- 
-
-  <form class="search-form">
-  
-      <ul class="suggestions">
-  
-        <li>Filter for the zipcode of a restaurant</li>
-  
-      </ul>
-
-      <input type="text" class="search" id= "text-search" placeholder="Zipcode of Restaurant">
-  
-  </form>
-
-  <button id= "submit" name= "submit" type="submit" formmethod= 'POST'>Submit Form</button>
-
-  <div id="mapid"></div>
+  <div class = 'columns'>
+      <div class= 'column'>
+        <form class="search-form">
+            <h2>Filter for the zipcode of a restaurant</h2>
+            
+            <input type="text" class="search" id= "text-search" placeholder="Zipcode of Restaurant">
+            <button id= "submit" name= "submit" type="submit" formmethod= 'POST'>Submit Form</button>
+            
+            <ul class="suggestions">
+          
+                
+          
+            </ul>
+          </form>
+      </div>
+      <div class = 'column'>
+        <div class= 'box' id="mapid"></div>
+      </div>
+  </div>
    
   <script src='script.js'></script>
 </body>

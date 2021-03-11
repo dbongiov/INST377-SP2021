@@ -7,90 +7,45 @@ function mapInit() {
   id: 'mapbox/streets-v11',
   tileSize: 512,
   zoomOffset: -1,
-  accessToken: 'your.mapbox.access.token'
+  accessToken: 'pk.eyJ1IjoiZGJvbmdpb3YiLCJhIjoiY2ttNTc4bDY4MGJqeTJ3czM0YmYxanVtOCJ9.njZ_Y7Spnukzhs_vYvIRXA'
 }).addTo(mymap);
-
-const marker = L.marker([51.5, -0.09]).addTo(mymap);
-
-//filter the data, eventlistener, 
-//async function that filter data and have an eventlistener for when they type. Top5 search results function. Put first 5 into an array
-
 
   return mymap;
 }
 
 
-/*
-async function maps {
-  console.log(windowloaded);
-  constant m = mapScript();
-  await dataFilter(m);
-}
-*/
+// define global constants
+// fetch data from api and parse it as a json value
+// add an eventListener on from waitng for submit button to be hit
+// filter suggestions
+// limit results (slice function) and put markers on map for only top 5 results
+async function dataFilter() {
+  const endpoint = "https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json";
 
+const names = [];
 
+// 2 lines for async function
+fetch(endpoint).then(blob => console.log(blob))
+const prom = fetch(endpoint)
+  .then((blob) => blob.json())
+  .then((data) => names.push(...data));
 
-/*
-marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
-circle.bindPopup("I am a circle.");
-polygon.bindPopup("I am a polygon.");
-
-let popup = L.popup()
-    .setLatLng([51.5, -0.09])
-    .setContent("I am a standalone popup.")
-    .openOn(mymap);
-
-    function onMapClick(e) {
-      alert("You clicked the map at " + e.latlng);
-  }
-  
-  mymap.on('click', onMapClick);
-
-  let popup = L.popup();
-
-function onMapClick(e) {
-    popup
-        .setLatLng(e.latlng)
-        .setContent("You clicked the map at " + e.latlng.toString())
-        .openOn(mymap);
+function findMatches(wordToMatch, names) {
+  return names.filter(restaurants => {
+    const regex = new RegExp(wordToMatch, 'gi');
+    return restaurants.name.match(regex);
+  });
 }
 
-mymap.on('click', onMapClick);
-
-*/
-
-
-
-
-
-async function dataHandler(mapObjectFromFunction) {
-  // use your assignment 1 data handling code here
-  // and target mapObjectFromFunction to attach markers
-
-  const endpoint = 'https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json';
-
-  const zips = [];
-  fetch(endpoint).then(blob => console.log(blob))
-  const prom = fetch(endpoint)
-    .then((blob) => blob.json())
-    .then((data) => zips.push(...data));
-
-  function findMatches(wordToMatch, zips) {
-    return zips.filter(restaurants => {
-      const regex = new RegExp(wordToMatch, 'gi');
-      return restaurants.zip.match(regex);
-    });
-  }
-
-  function displayMatches() {
+function displayMatches() {
     console.log(this.value);
-    const matchArray = findMatches(this.value, zips);
+    const matchArray = findMatches(this.value, names);
     const html = matchArray.map(restaurants => {
-      const regex = new RegExp(this.value, 'gi') ;
-      const restoZip = restaurants.zip.replace(regex, `<span class="hl">${this.value}</span>`);
+      const regex = new RegExp(this.value, 'gi');
+      const restoName = restaurants.name.replace(regex, `<span class="hl">${this.value}</span>`);
       return  `
         <li>
-            <span class= "title">${restoZip}</span>
+            <span class= "title">${restoName}</span>
             <span class= "address">${restaurants.address_line_1}</span>
             <span class= "city">${restaurants.city}</span>
             <span class= "category">${restaurants.category}</span>
@@ -98,18 +53,23 @@ async function dataHandler(mapObjectFromFunction) {
         `;
     }).join('');
     suggestions.innerHTML = html;
-  }
-
-  const searchInput = document.querySelector('.search');
-  const suggestions = document.querySelector('.suggestions');
-
-  searchInput.addEventListener('change', displayMatches);
-  searchInput.addEventListener('keyup', displayMatches);
 }
 
-async function windowActions() {
-  const map = mapInit();
-  await dataHandler(map);
+const searchInput = document.querySelector('.search');
+const suggestions = document.querySelector('.suggestions');
+
+searchInput.addEventListener('change', displayMatches);
+searchInput.addEventListener('keyup', displayMatches);
+
+
 }
 
-window.onload = windowActions;
+
+
+
+
+
+
+
+window.onload = mapInit();
+
