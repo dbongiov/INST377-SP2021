@@ -14,13 +14,18 @@ h1 {
     font-weight: 900;
 }
 
-#text-search {
+#search {
     position: fixed;
 }
 
 #submit {
     margin-top: 30px;
     position: fixed;
+}
+
+.title {
+    font-size: medium;
+    font-weight: 999px;
 }
 
 .suggestions {
@@ -45,12 +50,12 @@ h1 {
   
   .suggestions li:nth-child(even) {
     margin: 10px;
-    background:linear-gradient(yellow,white);
+    background:linear-gradient(orange,white);
   }
   
   .suggestions li:nth-child(odd) {
     margin: 10px;
-    background:linear-gradient(yellow,white);
+    background:linear-gradient(orange,white);
   }
 
   
