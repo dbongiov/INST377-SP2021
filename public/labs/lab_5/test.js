@@ -25,23 +25,28 @@ async function dataHandler(mapFromLeaflet) {
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
     console.log('form submitted');
+
     const filtered = data.filter((record) => record.zip.includes(search.value) && record.geocoded_column_1);
+    
     console.table(filtered);
 
+    let count = 0;
     filtered.forEach((item) => {
+        
+    if(count < 5){
       const longLat = item.geocoded_column_1.coordinates;
       console.log('markerLongLat', longLat[0], longLat[1]);
       const marker = L.marker([longLat[1], longLat[0]]).addTo(mapFromLeaflet);
+        count++;
+    }
 
       const appendItem = document.createElement('li');
       appendItem.classList.add('block');
       appendItem.classList.add('list-item');
       appendItem.innerHTML = '<div class = "list-header is-size-5">${item.name}</div><address class= "is-size-6">${item.adress_line_1}</address>';
-      
+        
       console.log(appendItem);
-      displayMatches(filtered);
-      // how do I use slice when there is no array?? 
-      // do I slice classList??
+      displayMatches(filtered.slice(0, 5));
     });
   });
 }
@@ -51,8 +56,7 @@ const suggestions = document.querySelector('.suggestions');
 function displayMatches(matchArray) {
     console.log(this.value);
     const html = matchArray.map(restaurants => {
-      const regex = new RegExp(this.value, 'gi') ;
-      //const restoName = restaurants.name.replace(regex, `<span class="hl">${this.value}</span>`);
+    const regex = new RegExp(this.value, 'gi');
       return  `
         <li>
             <span class= "title">${restaurants.name}</span>
