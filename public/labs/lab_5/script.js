@@ -75,4 +75,12 @@ async function windowActions() {
   await dataHandler(map);
 }
 
+/*
+Can't get the markers to disappear when a new search fires or get an empty string when the user search is empty
+
+const searchInput = document.querySelector('.search');
+
+searchInput.addEventListener('input', '');
+*/
+
 window.onload = windowActions;
