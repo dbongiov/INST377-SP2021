@@ -76,6 +76,8 @@ async function windowActions() {
 }
 
 /*
+
+Also I don't pass the first test on Heroku
 Can't get the markers to disappear when a new search fires or get an empty string when the user search is empty
 
 const searchInput = document.querySelector('.search');
