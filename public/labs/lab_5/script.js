@@ -19,70 +19,44 @@ function mapInit() {
 async function dataHandler(mapFromLeaflet) {
   const form = document.querySelector('#search-form');
   const search = document.querySelector('#search');
-  const targetList = document.querySelector('.target-list');
-
+  const suggestions = document.querySelector('.suggestions');
   const request = await fetch('/api');
   const data = await request.json();
 
   form.addEventListener('submit', async (event) => {
-
+    let marker;
+    suggestions.innerText = '';
+    marker = '';
     event.preventDefault();
     console.log('form submitted');
 
     const filtered = data.filter((record) => record.zip.includes(search.value) && record.geocoded_column_1);
-    console.table(filtered);
-
-    let count = 0;
-    filtered.forEach((item) => {
-      if (count < 5) {
-        const longLat = item.geocoded_column_1.coordinates;
-        console.log('markerLongLat', longLat[0], longLat[1]);
-        const marker = L.marker([longLat[1], longLat[0]]).addTo(mapFromLeaflet);
-        count++;
-      }
+    const topFive = filtered.slice(0, 5);
+    console.table(topFive);
+   
+    topFive.forEach((item) => {
+      const longLat = item.geocoded_column_1.coordinates;
+      console.log('markerLongLat', longLat[0], longLat[1]);
+      marker = L.marker([longLat[1], longLat[0]]).addTo(mapFromLeaflet);
 
       const appendItem = document.createElement('li');
       appendItem.classList.add('block');
       appendItem.classList.add('list-item');
-      appendItem.innerHTML = '<div class = "list-header is-size-5">${item.name}</div><address class = "is-size-6">${item.adress_line_1}</address>';
+      appendItem.innerHTML = `<div class = "list-header is-size-5">
+          <span class= "title">${item.name}</span>
+          <span class= "address">${item.address_line_1}</span>
+      </div>`;
+
+      suggestions.append(appendItem);
 
       console.log(appendItem);
-      displayMatches(filtered.slice(0, 5));
     });
   });
 }
-
-const suggestions = document.querySelector('.suggestions');
-
-function displayMatches(matchArray) {
-  console.log(this.value);
-  const html = matchArray.map(restaurants => {
-    const regex = new RegExp(this.value, 'gi');
-    return `
-        <li>
-            <span class= "title">${restaurants.name}</span>
-            <span class= "address">${restaurants.address_line_1}</span>
-        </li>
-        `;
-  }).join('');
-  suggestions.innerHTML = html;
-}
-
-
 
 async function windowActions() {
   const map = mapInit();
   await dataHandler(map);
 }
-
-/*
-
-Also I don't pass the first test on Heroku
-Can't get the markers to disappear when a new search fires or get an empty string when the user search is empty
-
-const searchInput = document.querySelector('.search');
-
-searchInput.addEventListener('input', '');
-*/
 
 window.onload = windowActions;
